@@ -1,0 +1,63 @@
+@use "../variables";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  // height: 100%;
+  width: 300px;
+  background-color: variables.$dark-gray;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    border-bottom: 1px solid #6a6a6a;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 32px 24px;
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    input[type="color"] {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      border: none;
+    }
+
+    .color-picker-wrapper {
+      float: left;
+      border: 1px solid #000;
+      border-radius: 20px;
+    }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  .button {
+    color: variables.$text-color;
+    background-color: #ca3e47;
+    border: none;
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+  }
+}

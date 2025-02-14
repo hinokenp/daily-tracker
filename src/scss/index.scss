@@ -1,0 +1,60 @@
+@use "variables";
+@use "normalize";
+
+@use "./components/all";
+
+body {
+  background-color: variables.$background;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+// .container {
+//   // width: 1240px;
+//   margin: 0 auto;
+// }
+
+.days-list {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-auto-rows: 100px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 6px;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  min-width: 100px;
+  padding: 6px 22px;
+  border-radius: 30px;
+  background-color: variables.$light-gray;
+
+  &__btn {
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.5;
+    text-align: end;
+    // margin-top: 10px;
+  }
+}
