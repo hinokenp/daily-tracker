@@ -1,0 +1,11 @@
+.colorPickerWrapper {
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+input[type="color"] {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  border: none;
+}

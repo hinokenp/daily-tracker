@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import DayCard from "./components/DayCard";
 import Sidebar from "./components/Sidebar";
+import { AppContext } from "./context";
 
 const MONTHS = [
   "Январь",
@@ -19,27 +20,24 @@ const MONTHS = [
 ];
 
 function App() {
-  const marks = [
+  const [marks, setMarks] = useState([
     {
+      id: 1,
       title: "Тест 1",
       color: "#CD4C4C",
       date: ["2025-01-11T10:00:00.000Z", "2025-01-12T12:30:45.123Z"],
     },
     {
+      id: 2,
       title: "Тест 2",
       color: "#6753D7",
       date: [
         "2025-01-08T10:00:00.000Z",
         "2025-01-11T12:30:45.123Z",
-        "2025-01-11T12:30:45.123Z",
-        "2025-01-11T12:30:45.123Z",
-        "2025-01-11T12:30:45.123Z",
-        "2025-01-11T12:30:45.123Z",
-        "2025-02-11T12:30:45.123Z",
         "2026-01-08T10:00:00.000Z",
       ],
     },
-  ];
+  ]);
 
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -111,10 +109,14 @@ function App() {
     setDayList(renderDays(newYear, newMonth));
   }
 
+  function handleCreateMark(title, color) {
+    setMarks((prev) => [...prev, { title: title, color: color, date: [] }]);
+  }
+
   return (
-    <>
+    <AppContext.Provider value={{ marks, setMarks, handleCreateMark }}>
       <main className="main">
-        <Sidebar marks={marks} />
+        <Sidebar />
         <div className="content">
           <div className="time-block">
             <div className="date">
@@ -149,10 +151,8 @@ function App() {
           </div>
         </div>
       </main>
-    </>
+    </AppContext.Provider>
   );
 }
-
-// new Date(date).getDate() === day ? <p>{mark.title}</p> : null;
 
 export default App;

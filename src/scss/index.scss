@@ -42,8 +42,9 @@ body {
 
 .date {
   display: flex;
-  justify-content: center;
+  align-self: center;
   align-items: flex-end;
+
   gap: 5px;
   min-width: 100px;
   padding: 6px 22px;
